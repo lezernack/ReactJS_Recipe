@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const APP_ID = "ea7e7fd3";
+  const APP_KEY = "3794c105773177f9d3c3189c7c94e59e";
+  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    console.log("Effect has been run");
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <form className="search-form">
+        <input className="search-bar" type="text" />
+        <button
+          onClick={() => setCounter(counter + 1)}
+          className="search-button"
+          type="submit"
         >
-          Learn React
-        </a>
-      </header>
+          {counter}
+        </button>
+      </form>
     </div>
   );
-}
+};
 
 export default App;
