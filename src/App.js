@@ -15,7 +15,7 @@ const App = () => {
   }, [query]);
 
   const getRecipes = async () => {
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&health=alcohol-free
+    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=${APP_ID}&app_key=${APP_KEY}&health=alcohol-free
 
     `)
       .then((x) => x.json())
@@ -27,7 +27,6 @@ const App = () => {
   };
 
   const getSearch = (e) => {
-    e.preventDefault();
     setQuery(search);
     setSearch("");
   };
