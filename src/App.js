@@ -15,11 +15,12 @@ const App = () => {
   }, [query]);
 
   const getRecipes = async () => {
-    fetch(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=${APP_ID}&app_key=${APP_KEY}&health=alcohol-free`
-    )
-      .then((x) => x.json())
-      .then((y) => setRecipes(y.hits) + console.log(y.hits));
+    const response = await fetch(
+      `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
+    );
+    const data = await response.json();
+    setRecipes(data.hits);
+    console.log(data.hits);
   };
 
   const updateSearch = (e) => {
