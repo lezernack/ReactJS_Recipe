@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Recipe from "./Recipe";
 import "./App.css";
-const dotenv = require("../dotenv");
 
 const App = () => {
-  const APP_ID = dotenv.APP_ID;
-  const APP_KEY = dotenv.APP_KEY;
+  const APP_ID = "ea7e7fd3";
+  const APP_KEY = "3794c105773177f9d3c3189c7c94e59e";
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
